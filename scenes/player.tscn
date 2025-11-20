@@ -1,19 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://b42u84ijyiy4x"]
+[gd_scene load_steps=8 format=3 uid="uid://b42u84ijyiy4x"]
 
-[ext_resource type="Texture2D" uid="uid://dwmknrvn547ir" path="res://icon.svg" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://bydtjoeuubgqt" path="res://scripts/player.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://qrlcvuolw3kn" path="res://assets/player_idle.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://d3yi80hba3dvl" path="res://assets/player1.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bpyo7ocnreruw" path="res://assets/player2.png" id="3_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cfvwtu3h6lwpt" path="res://assets/player_jump.png" id="4_qlg0r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(118, 118)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlg0r"]
+size = Vector2(58, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqkch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dqkch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qlg0r")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g2els")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qhqgy")
+}],
+"loop": true,
+"name": &"run",
+"speed": 3.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_4flbx")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_onrkg")
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_qlg0r")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.8, 0.8)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(4.5, 4.6249995)
+sprite_frames = SubResource("SpriteFrames_dqkch")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.2843116
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true

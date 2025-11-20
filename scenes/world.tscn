@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://i7ie308v0ytr"]
+[gd_scene load_steps=4 format=3 uid="uid://i7ie308v0ytr"]
 
 [ext_resource type="PackedScene" uid="uid://b42u84ijyiy4x" path="res://scenes/player.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://b6nrcq7b0qp6m" path="res://scenes/tile_map.tscn" id="2_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://dhto4k3m3fsf1" path="res://scenes/platform.tscn" id="3_4wyf3"]
 
 [node name="World" type="Node2D"]
 
@@ -10,3 +11,9 @@ position = Vector2(99, -218)
 
 [node name="TileMap" parent="." instance=ExtResource("2_4wyf3")]
 position = Vector2(-81, 607)
+
+[node name="Platform" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(330, 186)
+
+[node name="Platform2" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(981, 97)
