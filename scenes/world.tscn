@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://i7ie308v0ytr"]
+[gd_scene load_steps=6 format=3 uid="uid://i7ie308v0ytr"]
 
+[ext_resource type="Script" uid="uid://bil8gibl5as12" path="res://scenes/world.gd" id="1_71j4m"]
 [ext_resource type="PackedScene" uid="uid://b42u84ijyiy4x" path="res://scenes/player.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://b6nrcq7b0qp6m" path="res://scenes/tile_map.tscn" id="2_4wyf3"]
-[ext_resource type="PackedScene" uid="uid://dhto4k3m3fsf1" path="res://scenes/platform.tscn" id="3_4wyf3"]
+[ext_resource type="PackedScene" uid="uid://c7k5oxcgj7t7e" path="res://scenes/platform.tscn" id="3_4wyf3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0juu"]
+size = Vector2(4630, 2600)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_71j4m")
 
 [node name="Player" parent="." instance=ExtResource("1_rwgxs")]
-position = Vector2(99, -218)
+position = Vector2(3322, -3853)
 
 [node name="TileMap" parent="." instance=ExtResource("2_4wyf3")]
 position = Vector2(-81, 607)
@@ -59,3 +64,11 @@ position = Vector2(4617, -6401)
 
 [node name="Platform16" parent="." instance=ExtResource("3_4wyf3")]
 position = Vector2(3352, -6090)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(4143, -6676)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k0juu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

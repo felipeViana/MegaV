@@ -23,13 +23,12 @@ const PUSH_FORCE = 2000
 const Bullet = preload("res://scenes/bullet.tscn")
 const BulletType = preload("res://scripts/bullet.gd")
 
+
 var jumped = false
 
 const MAX_VELOCITY = 3000
 
 func _process(delta: float) ->  void:
-	print(velocity.y, " ", MAX_VELOCITY)
-	
 	shootTimer = max(shootTimer - delta, 0)
 	
 	if Input.is_action_just_pressed("shoot"):
