@@ -25,10 +25,12 @@ const BulletType = preload("res://scripts/bullet.gd")
 
 var jumped = false
 
+const MAX_VELOCITY = 3000
+
 func _process(delta: float) ->  void:
-	print(coyoteTimer.time_left)
+	print(velocity.y, " ", MAX_VELOCITY)
 	
-	shootTimer -= delta
+	shootTimer = max(shootTimer - delta, 0)
 	
 	if Input.is_action_just_pressed("shoot"):
 		if shootTimer > 0: # shoot on cooldown
@@ -45,10 +47,12 @@ func _process(delta: float) ->  void:
 func canJump() -> bool:
 	return ((is_on_floor() or is_on_ceiling()) or not coyoteTimer.is_stopped()) and not jumped
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor() and not is_on_ceiling():
 		velocity += get_gravity() * delta * isGravityDown
+		velocity.y = clampf(velocity.y, -MAX_VELOCITY, MAX_VELOCITY)
 	else:
 		jumped = false
 
@@ -56,6 +60,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and canJump():
 		jumped = true
 		velocity.y = JUMP_VELOCITY * isGravityDown
+		
 		isGravityDown = isGravityDown * -1
 		if isGravityDown == 1:
 			sprite.flip_v = false

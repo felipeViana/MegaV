@@ -17,3 +17,45 @@ position = Vector2(330, 186)
 
 [node name="Platform2" parent="." instance=ExtResource("3_4wyf3")]
 position = Vector2(981, 97)
+
+[node name="Platform3" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3538, -217)
+
+[node name="Platform4" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(4502, -618)
+
+[node name="Platform5" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3910, -1425)
+
+[node name="Platform6" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3177, -1876)
+
+[node name="Platform7" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(5227, -241)
+
+[node name="Platform8" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(4827, -2979)
+
+[node name="Platform9" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3562, -2668)
+
+[node name="Platform10" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3328, -3639)
+
+[node name="Platform11" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(4292, -4040)
+
+[node name="Platform12" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3700, -4847)
+
+[node name="Platform13" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(2967, -5298)
+
+[node name="Platform14" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(5017, -3663)
+
+[node name="Platform15" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(4617, -6401)
+
+[node name="Platform16" parent="." instance=ExtResource("3_4wyf3")]
+position = Vector2(3352, -6090)
